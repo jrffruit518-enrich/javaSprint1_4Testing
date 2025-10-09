@@ -11,8 +11,7 @@ public class CountryLoader {
 
         InputStream input = CountryLoader.class.getClassLoader().getResourceAsStream("countries.txt");
         if (input == null) {
-            System.out.println("The file is not found.");
-            return null;
+            throw new IOException("countries.txt not found");
         }
         BufferedReader reader = new BufferedReader(new InputStreamReader(input));
         HashMap<String, String> countryCapital = new HashMap<>();
