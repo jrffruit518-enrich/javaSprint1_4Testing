@@ -7,8 +7,16 @@ public class Main {
         List<Month> months = new ArrayList<>();
         months.addAll(Arrays.asList(Month.JANUARY, Month.FEBRUARY, Month.MARCH, Month.APRIL, Month.MAY, Month.JUNE, Month.JULY, Month.
                 SEPTEMBER, Month.OCTOBER, Month.NOVEMBER, Month.DECEMBER));
+
+        // No hay August
+        for (Month month : months) {
+            System.out.println(month);
+        }
+        System.out.println();
+
         months.add(7, Month.AUGUST);
 
+        // Including August
         for (Month month : months) {
             System.out.println(month);
         }
@@ -21,7 +29,14 @@ public class Main {
         }
         System.out.println();
 
+        //Add duplicated January
+        months.add(Month.JANUARY);
+        for (Month month : months) {
+            System.out.println(month);
+        }
+        System.out.println();
 
+        //Eliminate duplicated January
         HashSet<Month> hashMonths = new LinkedHashSet<>(months);
 
         for (Month month : hashMonths) {
@@ -30,11 +45,6 @@ public class Main {
         System.out.println();
 
 
-        Iterator<Month> monthIterator = hashMonths.iterator();
-        while (monthIterator.hasNext()) {
-            System.out.println(monthIterator.next());
-        }
-        System.out.println();
 
     }
 }
