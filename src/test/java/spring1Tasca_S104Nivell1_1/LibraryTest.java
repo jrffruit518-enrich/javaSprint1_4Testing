@@ -1,18 +1,16 @@
 package spring1Tasca_S104Nivell1_1;
 
-
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-
 import java.util.*;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class LibraryTest {
     private Library library;
 
-    @Before
+    @BeforeEach
     public void setup() {
         library = new Library();
     }
@@ -151,7 +149,7 @@ public class LibraryTest {
                 for (int i = 0; i < books.size() - 1; i++) {
                     String current = books.get(i).getName();
                     String next = books.get(i + 1).getName();
-                    assertTrue("List should be sorted alphabetically", current.compareTo(next) <= 0);
+                    assertTrue(current.compareTo(next) <= 0,"List should be sorted alphabetically");
                 }
 
                 library.getBookManagement().addBook("Dune");
@@ -160,7 +158,7 @@ public class LibraryTest {
                 for (int i = 0; i < books.size() - 1; i++) {
                     String current = books.get(i).getName();
                     String next = books.get(i + 1).getName();
-                    assertTrue("List should remain sorted after adding a book", current.compareTo(next) <= 0);
+                    assertTrue(current.compareTo(next) <= 0,"List should remain sorted after adding a book");
                 }
 
                 library.getBookManagement().removeBook("Cien años de soledad");
@@ -169,7 +167,7 @@ public class LibraryTest {
                 for (int i = 0; i < books.size() - 1; i++) {
                     String current = books.get(i).getName();
                     String next = books.get(i + 1).getName();
-                    assertTrue("List should remain sorted after removing a book", current.compareTo(next) <= 0);
+                    assertTrue(current.compareTo(next) <= 0,"List should remain sorted after removing a book");
                 }
 
                 System.out.println("The test is successful.");
