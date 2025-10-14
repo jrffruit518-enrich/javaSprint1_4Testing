@@ -1,4 +1,4 @@
-package spring1Tasca_S104Nivell1_1;
+package sprint1Tasca_S104Nivell1_1;
 
 public class ExceptionBookEmpty extends Exception {
     @java.io.Serial

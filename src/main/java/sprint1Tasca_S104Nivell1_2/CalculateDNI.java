@@ -1,4 +1,4 @@
-package spring1Tasca_S104Nivell1_2;
+package sprint1Tasca_S104Nivell1_2;
 
 public class CalculateDNI {
 

@@ -1,4 +1,4 @@
-package spring1Tasca_S104Nivell1_3;
+package sprint1Tasca_S104Nivell1_3;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
