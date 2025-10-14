@@ -7,7 +7,7 @@ import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(Parameterized.class)
+
 public class CalculateTest {
 
     private final int dniNumber;
