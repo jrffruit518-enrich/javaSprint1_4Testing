@@ -1,0 +1,22 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+target/
+
+# Build files
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# System
+.DS_Store
+Thumbs.db
+
+# Maven
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
