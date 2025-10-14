@@ -1,0 +1,25 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+target/
+
+# Java build files
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Maven
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Your custom ignore rule
+src/main/java/org/example/
