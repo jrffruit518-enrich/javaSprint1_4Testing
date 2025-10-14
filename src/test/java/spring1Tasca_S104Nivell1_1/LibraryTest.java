@@ -1,13 +1,12 @@
 package spring1Tasca_S104Nivell1_1;
 
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 import java.util.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class LibraryTest {
@@ -56,7 +55,7 @@ public class LibraryTest {
             }
             ArrayList<String> listSort = new ArrayList<>(listTitle);
             Collections.sort(listSort);
-            assertEquals("The test is failed.", listSort, listTitle);
+            assertEquals(listSort, listTitle,"The test is failed.");
             System.out.println("The test is successful.");
         } catch (ExceptionBookExisted e) {
             System.out.println(e.getMessage());
@@ -74,7 +73,7 @@ public class LibraryTest {
             while (iterator.hasNext()) {
                 bookTitle.add(iterator.next().getName());
             }
-            assertEquals("The test is failed.", library.getBookManagement().getBooks().size(), bookTitle.size());
+            assertEquals(library.getBookManagement().getBooks().size(), bookTitle.size(),"The test is failed.");
             System.out.println("The test is successful.");
         } catch (ExceptionBookExisted e) {
             System.out.println(e.getMessage());
@@ -110,7 +109,7 @@ public class LibraryTest {
             library.getBookManagement().addBook("Cien años de soledad");
             ArrayList<Book> booksInicial = new ArrayList<>(library.getBookManagement().getBooks());
 
-            assertEquals("The test is failed.", 3, booksInicial.size());
+            assertEquals( 3, booksInicial.size(),"The test is failed.");
             System.out.println("The test is successful.");
         } catch (ExceptionBookExisted e) {
             throw new RuntimeException(e);
@@ -128,7 +127,7 @@ public class LibraryTest {
             library.getBookManagement().removeBook("A Tale of Two Cities");
             List<Book> books = new ArrayList<>(library.getBookManagement().getBooks());
 
-            assertEquals("The test is failed.", 2, books.size());
+            assertEquals( 2, books.size(),"The test is failed.");
             System.out.println("The test is successful.");
         } catch (ExceptionBookExisted e) {
             throw new RuntimeException(e);
