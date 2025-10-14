@@ -19,9 +19,16 @@ public class CalculateTest {
 
     @ParameterizedTest
     @CsvSource({
-            "12345678, Z",
-            "87654321, A",
-            "11111111, B"
+            "12345678,Z",
+            "87654321,X",
+            "11111111,H",
+            "22222222,J",
+            "33333333,P",
+            "44444444,A",
+            "55555555,K",
+            "66666666,Q",
+            "77777777,B",
+            "88888888,Y"
     })
     void testCalculateLetter(int dniNumber, char expectedLetter) {
         CalculateDNI calculateDNI = new CalculateDNI();
