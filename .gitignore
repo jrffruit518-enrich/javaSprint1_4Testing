@@ -4,7 +4,7 @@
 out/
 target/
 
-# Build files
+# Java build files
 *.class
 *.jar
 *.war
@@ -13,10 +13,13 @@ target/
 # Logs
 *.log
 
-# System
+# System files
 .DS_Store
 Thumbs.db
 
 # Maven
 .mvn/
 !/.mvn/wrapper/maven-wrapper.jar
+
+# Your custom ignore rule
+src/main/java/org/example/
