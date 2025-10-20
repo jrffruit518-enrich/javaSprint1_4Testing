@@ -33,7 +33,7 @@ Configuración de JUnit 5 en el proyecto o dependencias Maven correctas.
 Clona este repositorio:
 
 ```
-git clone <URL-del-repositorio>
+git clone https://github.com/jrffruit518-enrich/javaSprint1_4.git
 ```
 
 Accede al directorio del proyecto:

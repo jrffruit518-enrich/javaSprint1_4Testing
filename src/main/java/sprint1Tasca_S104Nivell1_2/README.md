@@ -30,7 +30,7 @@ El sistema permite:
 1. Clona este repositorio:
 
 ```
-git clone <URL-del-repositorio>
+git clone https://github.com/jrffruit518-enrich/javaSprint1_4.git
 ```
 
 2. Accede al directorio del proyecto:
