@@ -16,11 +16,11 @@ public class Library {
         if (book== null) {
             throw new IllegalArgumentException("The book can´t be null.");
         }
-        if (books.stream().anyMatch(book1 -> book1.getName().equalsIgnoreCase(book.getName()))) {
+        if (books.contains(book)) {
             throw new IllegalArgumentException("The book is already existed.");
         }
         this.books.add(book);
-        this.books.sort(Comparator.comparing(Book::getName));
+        sortBooks();
     }
 
     public List<Book> getBooks() {
@@ -29,23 +29,27 @@ public class Library {
 
     public String showName(int index) {
         if (index < 0 || index >= books.size()) {
-            throw new ExceptionBookOutOfBound("The index is out of bound.");
+            throw new IllegalArgumentException("The index is out of bound.");
         }
         return this.books.get(index).getName();
+    }
+
+    public void sortBooks() {
+        this.books.sort(Comparator.comparing(Book::getName));
     }
 
     public void addBookIndex(Book book,int index) {
         if (book== null) {
             throw new IllegalArgumentException("The book can´t be null.");
         }
-        if (books.stream().anyMatch(book1 -> book1.getName().equalsIgnoreCase(book.getName()))) {
-            throw new ExceptionBookExisted("The book is already existed.");
+        if (books.contains(book)) {
+            throw new IllegalArgumentException("The book is already existed.");
         }
         if (index < 0 || index > books.size()) {
-            throw new ExceptionBookOutOfBound("The index is out of bound.");
+            throw new IllegalArgumentException("The index is out of bound.");
         }
         this.books.add(index,book);
-        this.books.sort(Comparator.comparing(Book::getName));
+        sortBooks();
     }
 
     public void removeBook(String name) {
@@ -54,9 +58,9 @@ public class Library {
         }
         boolean removed = this.books.removeIf(book -> book.getName().equalsIgnoreCase(name));
         if (!removed) {
-            throw new ExceptionBookEmpty("There is no such a book.");
+            throw new IllegalArgumentException("There is no such a book.");
         }
-        this.books.sort(Comparator.comparing(Book::getName));
+        sortBooks();
 
     }
 

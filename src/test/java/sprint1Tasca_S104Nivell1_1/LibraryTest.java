@@ -49,13 +49,12 @@ public class LibraryTest {
 
     @Test
     void testBookAtCorrectPositionWithAddBookIndex() {
-        // 使用 addBookIndex 添加书籍，验证排序（需修复代码）
         library.addBookIndex(new Book("Brave New World"), 0); // Brave New World
         library.addBookIndex(new Book("Animal Farm"), 0); // Animal Farm
         assertEquals("Animal Farm", library.showName(0), "Animal Farm should be at index 0 (sorted).");
         assertEquals("Brave New World", library.showName(1), "Brave New World should be at index 1 (sorted).");
 
-        // 添加第三本书
+
         library.addBookIndex(new Book("1984"), 1); // 1984
         assertEquals("1984", library.showName(0), "1984 should be at index 0 (sorted).");
         assertEquals("Animal Farm", library.showName(1), "Animal Farm should be at index 1 (sorted).");
