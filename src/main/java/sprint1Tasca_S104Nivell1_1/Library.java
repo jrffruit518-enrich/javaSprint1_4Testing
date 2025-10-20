@@ -24,7 +24,7 @@ public class Library {
     }
 
     public List<Book> getBooks() {
-        return Collections.unmodifiableList(books);
+        return new ArrayList<>(books);
     }
 
     public String showName(int index) {

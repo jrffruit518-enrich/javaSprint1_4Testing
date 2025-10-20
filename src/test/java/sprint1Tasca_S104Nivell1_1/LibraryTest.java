@@ -71,43 +71,35 @@ public class LibraryTest {
         HashSet<String> bookTitle = new HashSet<>();
         Iterator<Book> iterator = library.getBooks().iterator();
         while (iterator.hasNext()) {
-            bookTitle.add(iterator.next().getName());
+            bookTitle.add(iterator.next().getName().toLowerCase());
         }
-        assertEquals(library.getBooks().size(), bookTitle.size(), "The test is failed.");
+        assertEquals(library.getBooks().size(), bookTitle.size());
 
     }
 
     @Test
-    public void testGetBookByPosition() {
-
+    public void testGetNameByPosition() {
+        library.addBookIndex(new Book("Cien años de soledad"),0);
         library.addBook(new Book("A Tale of Two Cities"));
-        library.addBook(new Book("Cien años de soledad"));
-        library.addBook(new Book("Hamlet"));
-        library.addBook(new Book("zoo"));
-        library.addBook(new Book("1984"));
+        library.addBookIndex(new Book("Brave New World"),0);
 
-        List<Book> books = library.getBooks();
+        assertEquals("A Tale of Two Cities", library.getBooks().get(0).getName());
+        assertEquals("Brave New World", library.getBooks().get(1).getName());
+        assertEquals("Cien años de soledad", library.getBooks().get(2).getName());
 
-        assertEquals("The test is failed.", "A Tale of Two Cities", books.get(0).getName());
-        assertEquals("The test is failed.", "Brave New World", books.get(1).getName());
-        assertEquals("The test is failed.", "Cien años de soledad", books.get(2).getName());
-        System.out.println("The test is successful.");
 
     }
 
     @Test
     public void testAddBookIncreasesSize() {
 
-
         library.addBook(new Book("A Tale of Two Cities"));
         library.addBook(new Book("Cien años de soledad"));
-        library.addBook(new Book("Hamlet"));
+        library.addBookIndex(new Book("Hamlet"),1);
         library.addBook(new Book("zoo"));
-        library.addBook(new Book("1984"));
-        ArrayList<Book> booksInicial = new ArrayList<>(library.getBooks());
+        library.addBookIndex(new Book("1984"),0);
 
-        assertEquals(3, booksInicial.size(), "The test is failed.");
-        System.out.println("The test is successful.");
+        assertEquals(5, library.getBooks().size());
 
     }
 
@@ -121,10 +113,8 @@ public class LibraryTest {
         library.addBook(new Book("zoo"));
         library.addBook(new Book("1984"));
         library.removeBook("A Tale of Two Cities");
-        List<Book> books = new ArrayList<>(library.getBooks());
+        assertEquals(4, library.getBooks().size());
 
-        assertEquals(2, books.size(), "The test is failed.");
-        System.out.println("The test is successful.");
 
 
     }
