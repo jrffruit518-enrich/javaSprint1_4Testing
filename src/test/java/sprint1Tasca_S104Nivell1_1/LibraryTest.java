@@ -2,14 +2,12 @@ package sprint1Tasca_S104Nivell1_1;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class LibraryTest {
-    private Library library;
+    private Library library ;
 
     @BeforeEach
     public void setup() {
@@ -24,31 +22,44 @@ public class LibraryTest {
 
     @Test
     public void testAddMultipleBooksSize() {
-
+        assertEquals(0, library.getBooks().size(), "Initial list size should be 0.");
         library.addBook(new Book("A Tale of Two Cities"));
+        assertEquals(1, library.getBooks().size(), "The list size should be 1.");
         library.addBook(new Book("Cien años de soledad"));
+        assertEquals(2, library.getBooks().size(), "The list size should be 2.");
         library.addBook(new Book("Hamlet"));
-        library.addBook(new Book("zoo"));
-        library.addBook(new Book("1984"));
+        assertEquals(3, library.getBooks().size(), "The list size should be 3.");
 
     }
 
+    @Test
+    void testBookAtCorrectPositionWithAddBook() {
+
+        library.addBook(new Book("Brave New World"));
+        library.addBook(new Book("Animal Farm"));
+        assertEquals("Animal Farm", library.showName(0), "Animal Farm should be at index 0 (sorted).");
+        assertEquals("Brave New World", library.showName(1), "Brave New World should be at index 1 (sorted).");
+
+
+        library.addBook(new Book("1984")); // 1984
+        assertEquals("1984", library.showName(0), "1984 should be at index 0 (sorted).");
+        assertEquals("Animal Farm", library.showName(1), "Animal Farm should be at index 1 (sorted).");
+        assertEquals("Brave New World", library.showName(2), "Brave New World should be at index 2 (sorted).");
+    }
 
     @Test
-    public void testListIsAlphabeticallyOrdered() {
-        library.addBook(new Book("A Tale of Two Cities"));
-        library.addBook(new Book("Cien años de soledad"));
-        library.addBook(new Book("Hamlet"));
-        library.addBook(new Book("zoo"));
-        library.addBook(new Book("1984"));
-        ArrayList<String> listTitle = new ArrayList<>();
-        Iterator<Book> iterator = library.getBooks().iterator();
-        while (iterator.hasNext()) {
-            listTitle.add(iterator.next().getName());
-        }
-        ArrayList<String> listSort = new ArrayList<>(listTitle);
-        Collections.sort(listSort);
-        assertEquals(listSort, listTitle, "The test is failed.");
+    void testBookAtCorrectPositionWithAddBookIndex() {
+        // 使用 addBookIndex 添加书籍，验证排序（需修复代码）
+        library.addBookIndex(new Book("Brave New World"), 0); // Brave New World
+        library.addBookIndex(new Book("Animal Farm"), 0); // Animal Farm
+        assertEquals("Animal Farm", library.showName(0), "Animal Farm should be at index 0 (sorted).");
+        assertEquals("Brave New World", library.showName(1), "Brave New World should be at index 1 (sorted).");
+
+        // 添加第三本书
+        library.addBookIndex(new Book("1984"), 1); // 1984
+        assertEquals("1984", library.showName(0), "1984 should be at index 0 (sorted).");
+        assertEquals("Animal Farm", library.showName(1), "Animal Farm should be at index 1 (sorted).");
+        assertEquals("Brave New World", library.showName(2), "Brave New World should be at index 2 (sorted).");
     }
 
     @Test
