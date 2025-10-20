@@ -1,103 +1,102 @@
 package sprint1Tasca_S104Nivell1_1;
 
 
+import java.util.*;
+
 public class Library {
-    private BookManagement bookManagement;
+    private List<Book> books;
 
-    public Library() {
-        this.bookManagement = new BookManagement();
+  /*  该类必须允许将书籍添加到集合中。
+
+    必须能够获取完整的书籍列表。
+
+    必须能够根据位置获取某一本书的标题。
+
+    必须能够在指定位置添加一本书。
+
+    必须能够根据标题删除一本书*/
+
+    /*该类必须允许将书籍添加到集合中。
+
+必须能够获取完整的书籍列表。
+
+必须能够根据位置获取某一本书的标题。
+
+必须能够在指定位置添加一本书。
+
+必须能够根据标题删除一本书。*/
+
+    public Library(List<Book> books) {
+        this.books = new ArrayList<>();
     }
 
-    public BookManagement getBookManagement() {
-        return bookManagement;
+
+    public void addBook(Book book) {
+        if (book== null) {
+            throw new IllegalArgumentException("The book can´t be null.");
+        }
+        this.books.add(book);
+        this.books.sort(Comparator.comparing(Book::getName));
     }
 
-    public void menu() {
-        boolean flag = true;
-        do {
+    public List<Book> getBooks() {
+        return Collections.unmodifiableList(books);
+    }
 
-            System.out.println("1: Add one book.");
-            System.out.println("2: Show all the books. ");
-            System.out.println("3: Show the name of a book. ");
-            System.out.println("4: Add one book by index.");
-            System.out.println("5: Remove one book by name. ");
-            System.out.println("6: Exit. ");
-            int option = LibraryEntry.readInt("Please enter the name between 1-6." + '\n');
-            switch (option) {
-                case 1:
-                    try {
-                        String name = LibraryEntry.readString(("Please enter the name." + '\n'));
-                        this.bookManagement.addBook(name);
-                        System.out.println("The book is added." + '\n');
-                    } catch (ExceptionBookExisted e) {
-                        System.out.println(e.getMessage());
-                        System.out.println();
-                    }
-                    break;
+    public String showName(int index) {
+        if (index > books.size()) {
+            throw new ExceptionBookOutOfBound("The index is out of bound.");
+        }
+        return this.books.get(index).getName();
+    }
 
-                case 2:
-                    try {
-                        if (bookManagement.getBooks().size() <= 0) {
-                            throw new ExceptionBookEmpty("There is no book." + '\n');
-                        }
-                        this.bookManagement.show();
-                    } catch (ExceptionBookEmpty e) {
-                        System.out.println(e.getMessage());
-                        System.out.println();
-                    }
-                    break;
+    public void addBookIndex(Book book,int index) {
+        if (book== null) {
+            throw new IllegalArgumentException("The book can´t be null.");
+        }
+        if (index > books.size()) {
+            throw new ExceptionBookOutOfBound("The index is out of bound.");
+        }
+        this.books.add(index,book);
+    }
 
-                case 3:
-                    int i = LibraryEntry.readInt("Please enter the index of book." + '\n');
-                    try {
-                        System.out.println("The book is : " + this.bookManagement.showName(i) + '\n');
-                    } catch (ExceptionBookOutOfBound e) {
-                        System.out.println(e.getMessage());
-                        System.out.println();
-                    }
-
-                    break;
-
-                case 4:
-                    try {
-                        int i1 = LibraryEntry.readInt("Please enter the index of book." + '\n');
-                        String name = LibraryEntry.readString(("Please enter the name." + '\n'));
-                        this.bookManagement.addBookByInt(i1, name);
-                        System.out.println("The book is added." + '\n');
-                    } catch (ExceptionBookOutOfBound e) {
-                        System.out.println(e.getMessage());
-                        System.out.println();
-                    } catch (ExceptionBookExisted e) {
-                        System.out.println(e.getMessage());
-                        System.out.println();
-                    }
-                    break;
-
-                case 5:
-
-                    String name = LibraryEntry.readString("Please enter the name." + '\n');
-                    try {
-                        this.bookManagement.removeBook(name);
-                        System.out.println("The book is removed." + '\n');
-                    } catch (ExceptionBookEmpty e) {
-                        System.out.println(e.getMessage());
-                    }
-
-                    break;
-
-                case 6:
-                    flag = false;
-                    System.out.println("Thank you for using.");
-                    break;
-
-                default:
-                    System.out.println("The number you entered is invalid,please try again." + '\n');
-                    System.out.println();
-
+    public void removeBook(String name) {
+        if (name == null) {
+            throw new IllegalArgumentException("The book can´t be null.");
+        }
+        int i;
+        for (i = 0; i < books.size(); i++) {
+            if (books.get(i).getName().equalsIgnoreCase(name) ) {
+                books.remove(i);
+                this.books.sort(Comparator.comparing(Book::getName));
             }
+        }
+        if (i == books.size()) {
+            throw new ExceptionBookEmpty("There is no such a book.");
+        }
 
-        } while (flag);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Library library = (Library) o;
+        return Objects.equals(books, library.books);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(books);
+    }
+
+    @Override
+    public String toString() {
+        return "Library{" +
+                "books=" + books +
+                '}';
+    }
 }
+
+
 

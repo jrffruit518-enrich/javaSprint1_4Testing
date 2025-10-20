@@ -1,6 +1,6 @@
 package sprint1Tasca_S104Nivell1_1;
 
-class ExceptionBookExisted extends Exception {
+class ExceptionBookExisted extends RuntimeException{
     @java.io.Serial
     static final long serialVersionUID = -33875163264229948L;
 
