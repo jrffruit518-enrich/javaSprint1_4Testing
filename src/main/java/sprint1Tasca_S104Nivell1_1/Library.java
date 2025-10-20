@@ -6,27 +6,8 @@ import java.util.*;
 public class Library {
     private List<Book> books;
 
-  /*  该类必须允许将书籍添加到集合中。
 
-    必须能够获取完整的书籍列表。
-
-    必须能够根据位置获取某一本书的标题。
-
-    必须能够在指定位置添加一本书。
-
-    必须能够根据标题删除一本书*/
-
-    /*该类必须允许将书籍添加到集合中。
-
-必须能够获取完整的书籍列表。
-
-必须能够根据位置获取某一本书的标题。
-
-必须能够在指定位置添加一本书。
-
-必须能够根据标题删除一本书。*/
-
-    public Library(List<Book> books) {
+    public Library() {
         this.books = new ArrayList<>();
     }
 
@@ -34,6 +15,9 @@ public class Library {
     public void addBook(Book book) {
         if (book== null) {
             throw new IllegalArgumentException("The book can´t be null.");
+        }
+        if (books.stream().anyMatch(book1 -> book1.getName().equalsIgnoreCase(book.getName()))) {
+            throw new IllegalArgumentException("The book is already existed.");
         }
         this.books.add(book);
         this.books.sort(Comparator.comparing(Book::getName));
@@ -44,7 +28,7 @@ public class Library {
     }
 
     public String showName(int index) {
-        if (index > books.size()) {
+        if (index < 0 || index >= books.size()) {
             throw new ExceptionBookOutOfBound("The index is out of bound.");
         }
         return this.books.get(index).getName();
@@ -54,26 +38,25 @@ public class Library {
         if (book== null) {
             throw new IllegalArgumentException("The book can´t be null.");
         }
-        if (index > books.size()) {
+        if (books.stream().anyMatch(book1 -> book1.getName().equalsIgnoreCase(book.getName()))) {
+            throw new ExceptionBookExisted("The book is already existed.");
+        }
+        if (index < 0 || index > books.size()) {
             throw new ExceptionBookOutOfBound("The index is out of bound.");
         }
         this.books.add(index,book);
+        this.books.sort(Comparator.comparing(Book::getName));
     }
 
     public void removeBook(String name) {
         if (name == null) {
             throw new IllegalArgumentException("The book can´t be null.");
         }
-        int i;
-        for (i = 0; i < books.size(); i++) {
-            if (books.get(i).getName().equalsIgnoreCase(name) ) {
-                books.remove(i);
-                this.books.sort(Comparator.comparing(Book::getName));
-            }
-        }
-        if (i == books.size()) {
+        boolean removed = this.books.removeIf(book -> book.getName().equalsIgnoreCase(name));
+        if (!removed) {
             throw new ExceptionBookEmpty("There is no such a book.");
         }
+        this.books.sort(Comparator.comparing(Book::getName));
 
     }
 

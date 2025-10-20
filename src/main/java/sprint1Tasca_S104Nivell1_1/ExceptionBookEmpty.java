@@ -8,6 +8,7 @@ public class ExceptionBookEmpty extends RuntimeException{
     }
 
     public ExceptionBookEmpty(String message) {
+        super(message);
     }
 
     public ExceptionBookEmpty(String message, Throwable cause) {
