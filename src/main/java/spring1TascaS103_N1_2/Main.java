@@ -5,17 +5,14 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         int count = Entry.readInt("Please enter a number. ");
-        List<Integer> list = listGenerate(count);
+
+        List<Integer> list = generateRandomList(count);
+
         printList(list);
+
         System.out.println();
 
-
-        List<Integer> listReverse = new ArrayList<>();
-        ListIterator<Integer> iterator = list.listIterator(list.size());
-        while (iterator.hasPrevious()) {
-            listReverse.add(iterator.previous());
-        }
-        printList(listReverse);
+        printList(reversedList(list));
 
 
     }
@@ -27,7 +24,7 @@ public class Main {
         }
     }
 
-    public static List<Integer> listGenerate(int count) {
+    public static List<Integer> generateRandomList (int count) {
         if (count <= 0) {
             throw new IllegalArgumentException("The number must be greater than zero.");
         }
@@ -38,5 +35,14 @@ public class Main {
             numbers.add(num);
         }
         return numbers;
+    }
+
+    public static List<Integer> reversedList(List<Integer> list) {
+        List<Integer> listReverse = new ArrayList<>();
+        ListIterator<Integer> iterator = list.listIterator(list.size());
+        while (iterator.hasPrevious()) {
+            listReverse.add(iterator.previous());
+        }return listReverse;
+
     }
 }
