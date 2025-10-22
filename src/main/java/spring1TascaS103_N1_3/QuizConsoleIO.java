@@ -8,7 +8,6 @@ public class QuizConsoleIO {
 }
 
     public String readAnswer() {
-        System.out.print("What is the capital? ");
         return EntryQuiz.readString();
     }
 
