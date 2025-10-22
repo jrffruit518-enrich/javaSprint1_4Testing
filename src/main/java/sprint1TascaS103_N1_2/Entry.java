@@ -1,4 +1,4 @@
-package spring1TascaS103_N1_2;
+package sprint1TascaS103_N1_2;
 
 
 import java.util.Scanner;

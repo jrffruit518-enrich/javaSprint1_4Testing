@@ -1,4 +1,4 @@
-package spring1TascaS103_N1_1;
+package sprint1TascaS103_N1_1;
 
 /**
  * ClassName: Month

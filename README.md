@@ -8,9 +8,9 @@ objetivo es practicar conceptos fundamentales de Java, como colecciones, iterado
 
 Los ejercicios de Nivel 1 están organizados en carpetas separadas dentro de `src`:
 
-- `spring1TascaS103_N1_1` → Ejercicio 1
-- `spring1TascaS103_N1_2` → Ejercicio 2
-- `spring1TascaS103_N1_3` → Ejercicio 3
+- `sprint1TascaS103_N1_1` → Ejercicio 1
+- `sprint1TascaS103_N1_2` → Ejercicio 2
+- `sprint1TascaS103_N1_3` → Ejercicio 3
 
 Cada carpeta contiene el código fuente y un README específico con instrucciones y detalles del ejercicio.
 

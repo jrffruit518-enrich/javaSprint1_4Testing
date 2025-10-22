@@ -34,13 +34,13 @@ Este proyecto consiste en:
 1. Compila los archivos Java:
 
 ```
-   javac spring1TascaS103_N1_2/*.java
+   javac sprint1TascaS103_N1_2/*.java
    ```
 
 2. Ejecuta el programa:
 
 ```
-   java spring1TascaS103_N1_2.Main
+   java sprint1TascaS103_N1_2.Main
    ```
 
 3. Introduce el número de elementos que quieres generar y observa la salida de la lista original y las listas

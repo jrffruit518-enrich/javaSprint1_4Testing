@@ -36,7 +36,7 @@ git clone <URL_DEL_REPOSITORI>
 ```
 
 2. Accedeix al directori del projecte:
-   cd spring1TascaS103_N1_1
+   cd sprint1TascaS103_N1_1
 
 
 3. Obre el projecte en el teu IDE preferit i assegura't que la versió de Java és correcta.
@@ -48,13 +48,13 @@ git clone <URL_DEL_REPOSITORI>
 1. Compila les classes:
 
 ```
-   javac -d out src/spring1TascaS103_N1_1/*.java
+   javac -d out src/sprint1TascaS103_N1_1/*.java
    ```
 
 2. Executa la classe principal:
 
 ```
-   java -cp out spring1TascaS103_N1_1.Main
+   java -cp out sprint1TascaS103_N1_1.Main
    ```
 
 3. Observa la sortida per consola, que mostrarà:

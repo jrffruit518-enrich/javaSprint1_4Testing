@@ -1,4 +1,4 @@
-package spring1TascaS103_N1_3;
+package sprint1TascaS103_N1_3;
 
 import java.io.IOException;
 import java.util.*;
