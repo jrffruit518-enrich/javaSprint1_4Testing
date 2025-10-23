@@ -12,6 +12,7 @@ Los ejercicios de Nivel 1 están organizados en carpetas separadas dentro de `sr
 - `sprint1TascaS103_N1_2` → Ejercicio 2 level 1
 - `sprint1TascaS103_N1_3` → Ejercicio 3 level 1
 - `sprint1TascaS103_N2_1` → Ejercicio 1 level 2
+- `sprint1TascaS103_N2_2` → Ejercicio 2 level 2
 
 Cada carpeta contiene el código fuente y un README específico con instrucciones y detalles del ejercicio.
 
