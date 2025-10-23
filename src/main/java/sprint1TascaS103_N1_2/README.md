@@ -21,9 +21,10 @@ Este proyecto consiste en:
 
 ## 🛠️ **Instalación**
 
-1. Clona este repositorio:  
-   git clone <URL_DEL_REPOSITORIO>
-
+1. Clona este repositorio: 
+```
+   git clone https://github.com/jrffruit518-enrich/javaSprint1_3.git
+```
 2. Accede al directorio del proyecto:  
    cd 1.2-Listas-Inversas-Nivel1
 

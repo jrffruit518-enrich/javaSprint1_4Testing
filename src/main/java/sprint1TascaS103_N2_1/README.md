@@ -24,7 +24,7 @@ IDE o editor de texto que soporte Java (IntelliJ, Eclipse, VS Code, etc.)
 
 Clona este repositorio:
 ```
-bashgit clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/jrffruit518-enrich/javaSprint1_3.git
 ```
 Accede al directorio del proyecto:
 ```
